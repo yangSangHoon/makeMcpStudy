@@ -2,22 +2,29 @@ import { MCPTool } from "mcp-framework";
 import { z } from "zod";
 
 interface WeatherInput {
-  message: string;
+  city: string;
 }
 
 class WeatherTool extends MCPTool<WeatherInput> {
   name = "weather";
-  description = "Weather tool description";
+  description = "Get weather information for a city";
 
   schema = {
-    message: {
+    city: {
       type: z.string(),
-      description: "Message to process",
+      description: "City name to get weather for",
     },
   };
 
-  async execute(input: WeatherInput) {
-    return `Processed: ${input.message}`;
+  async execute({ city }: WeatherInput) {
+    // In a real scenario, this would call a weather API
+    // For now, we return this sample data
+    return {
+      city,
+      temperature: 22,
+      condition: "Sunny",
+      humidity: 45,
+    };
   }
 }
 
