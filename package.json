@@ -1,0 +1,30 @@
+{
+  "name": "weather-mcp-server",
+  "version": "0.0.1",
+  "description": "weather-mcp-server MCP server",
+  "type": "module",
+  "bin": {
+    "weather-mcp-server": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && mcp-build",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@langchain/openai": "^0.5.5",
+    "dotenv": "^16.5.0",
+    "langchain": "^0.3.21",
+    "mcp-framework": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  }
+}
